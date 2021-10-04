@@ -12,17 +12,23 @@ BONUSOBJS = ${SRCS:.c=.o}
 all: $(NAME)
 
 $(NAME): $(OBJS)
+		make -C libft
 		$(CC) $(CFLAGS) ./libft/libft.a libmlx.dylib -o $(NAME) $(OBJS)
+
+.c.o:
+		$(CC) $(CFLAG) -c $< -o $@
 
 clean:
 		rm -f $(OBJS) $(BONUSOBJS)
+		make clean -C libft
 
 fclean: clean
 		rm -rf $(NAME)
+		make fclean -C libft
 
 re: fclean all
 
 bonus: $(BONUSOBJS)
-		$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+		$(CC) $(CFLAGS) ./libft/libft.a libmlx.dylib -o $(NAME) $(OBJS)
 
 .PHONY: all clean fclean re bonus
