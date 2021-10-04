@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "./mlx.h"
-#include "./libft/libft.h"
-#include "key_macro.h"
-#include "fractol.h"
+#include "./../include/mlx.h"
+#include "./../libft/libft.h"
+#include "./../include/key_macro.h"
+#include "./../include/fractol.h"
 
 //header file
 
@@ -85,7 +85,7 @@ void    my_mlx_pixel_put(t_img *img, int x, int y, int color)
     *(unsigned int *)dst = color;
 }
 
-void	arg_check(int argc, char **argv)
+void	arg_check(int argc)
 {
 	if (argc != 2)
 	{
@@ -228,20 +228,26 @@ int	key_press(int key, t_info *info)
 	{
 		exit(0);
 	}
-	// else if (key == K_W)
-	// 	info->key_w = 1;
-	// else if (key == K_A)
-	// 	info->key_a = 1;
-	// else if (key == K_S)
-	// 	info->key_s = 1;
-	// else if (key == K_D)
-	// 	info->key_d = 1;
-	// else if (key == K_RIGHT)
-	// 	info->key_right = 1;
-	// else if (key == K_LEFT)
-	// 	info->key_left = 1;
-	// else if (key == K_P)
-	// 	info->key_print = 1;
+	else if (key == K_W)
+	{
+		info->imgn_max -= (info->imgn_max - info->imgn_min) * MOVE_STEP;
+		info->imgn_min -= (info->imgn_max - info->imgn_min) * MOVE_STEP;
+	}
+	else if (key == K_A)
+	{
+		info->real_max -= (info->imgn_max - info->imgn_min) * MOVE_STEP;
+		info->real_min -= (info->imgn_max - info->imgn_min) * MOVE_STEP;
+	}
+	else if (key == K_S)
+	{
+		info->imgn_max += (info->imgn_max - info->imgn_min) * MOVE_STEP;
+		info->imgn_min += (info->imgn_max - info->imgn_min) * MOVE_STEP;
+	}
+	else if (key == K_D)
+	{
+		info->real_max += (info->imgn_max - info->imgn_min) * MOVE_STEP;
+		info->real_min += (info->imgn_max - info->imgn_min) * MOVE_STEP;
+	}
 	return (0);
 }
 
@@ -302,7 +308,7 @@ int	main(int argc, char **argv)
 {
 	t_info	info;
 
-	arg_check(argc, argv);
+	arg_check(argc);
 	info.mlx = mlx_init();
 	info.win = mlx_new_window(info.mlx, WIDTH, HEIGHT, "fractol");
 	info.img.img = mlx_new_image(info.mlx, WIDTH, HEIGHT);
