@@ -76,5 +76,6 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 int		rgb2hex(int r, int g, int b);
 int		i_max(int a, int b);
 int		i_min(int a, int b);
+void	err_message_fractol(void);
 
 #endif

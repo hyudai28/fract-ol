@@ -4,6 +4,9 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 SOURCE_DIR = src
 SRCS = $(SOURCE_DIR)/fractol.c
+SRCS += $(SOURCE_DIR)/fractol_utils.c
+SRCS += $(SOURCE_DIR)/fractol_draw.c
+SRCS += $(SOURCE_DIR)/fractol_setup.c
 
 
 OBJS = ${SRCS:.c=.o}
