@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_macro.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyudai <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 20:17:27 by hyudai            #+#    #+#             */
-/*   Updated: 2021/06/03 17:43:43 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/10/04 22:55:38 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,14 @@
 # define K_0 29
 # define K_RIGHT 123
 # define K_LEFT 124
+# define SCROLL_UP 4
+# define SCROLL_DOWN 5
+# define MOUSE_LEFT 6
+# define MOUSE_RIGHT 7
+# define HOOK_NUM 17
+# define HOOK_KEY 2
+# define HOOK_RELEASE 18
+# define HOOK_KEY_MASK 0
+# define HOOK_RELEASE_MASK 18
 
 #endif

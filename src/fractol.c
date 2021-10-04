@@ -1,53 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "./../include/mlx.h"
-#include "./../libft/libft.h"
-#include "./../include/key_macro.h"
 #include "./../include/fractol.h"
-
-//header file
-
-#define WIDTH 800
-#define HEIGHT 800
-
-typedef struct s_img
-{
-	void	*img;
-	char		*addr;
-	int		size_l;
-	int		bpp;
-	int		endian;
-	int		img_width;
-	int		img_height;
-}		t_img;
-
-typedef struct s_info
-{
-	void	*mlx;
-	void	*win;
-	t_img	img;
-	double	real_max;
-	double	imgn_max;
-	double	real_min;
-	double	imgn_min;
-	double	real_z;
-	double	imgn_z;
-	double	real_c;
-	double	imgn_c;
-	double	real_del;
-	double	imgn_del;
-	double	real_mouse;
-	double	imgn_mouse;
-	double	interpolate;
-	int	color;
-	int	fractol;
-	double	iterator; //色の細かさ　６なら６色
-}		t_info;
-
-//header
-
-
-void	update_c(t_info *info);
 
 int    i_min(int a, int b)
 {
@@ -59,13 +10,10 @@ int    i_min(int a, int b)
 
 int    i_max(int a, int b)
 {
-    int    res;
-
     if (a > b)
-        res = a;
+        return (a);
     else
-        res = b;
-    return (res);
+        return (b);
 }
 
 int    rgb2hex(int r, int g, int b)
@@ -85,13 +33,30 @@ void    my_mlx_pixel_put(t_img *img, int x, int y, int color)
     *(unsigned int *)dst = color;
 }
 
-void	arg_check(int argc)
+void	err_message_fractol(void)
+{
+	printf("\
+This is fractol help.\n\
+you can use 3 command.\n\
+	1. ./fractol julia\n\
+	2. ./fractol mande\n\
+	3. ./fractol burn\n");
+	exit (1);
+}
+
+int	arg_check(int argc, char **argv)
 {
 	if (argc != 2)
-	{
-		printf("Error.\n");
-		exit(1);
-	}
+		err_message_fractol();
+	if (!ft_strncmp(argv[1], "mande", 5))
+		return (0);
+	else if (!ft_strncmp(argv[1], "julia", 5))
+		return (1);
+	else if (!ft_strncmp(argv[1], "burn", 4))
+		return (2);
+	else
+		err_message_fractol();
+	return (0);
 }
 
 void	set_parameter(t_info *info)
@@ -225,9 +190,7 @@ int	main_loop_mande_burn(t_info *info)
 int	key_press(int key, t_info *info)
 {
 	if (key == K_ESC)
-	{
 		exit(0);
-	}
 	else if (key == K_W)
 	{
 		info->imgn_max -= (info->imgn_max - info->imgn_min) * MOVE_STEP;
@@ -248,6 +211,8 @@ int	key_press(int key, t_info *info)
 		info->real_max += (info->imgn_max - info->imgn_min) * MOVE_STEP;
 		info->real_min += (info->imgn_max - info->imgn_min) * MOVE_STEP;
 	}
+	else if (key == K_G)
+		info->color = 114514;
 	return (0);
 }
 
@@ -308,36 +273,18 @@ int	main(int argc, char **argv)
 {
 	t_info	info;
 
-	arg_check(argc);
+	info.fractol = arg_check(argc, argv);
 	info.mlx = mlx_init();
 	info.win = mlx_new_window(info.mlx, WIDTH, HEIGHT, "fractol");
 	info.img.img = mlx_new_image(info.mlx, WIDTH, HEIGHT);
 	info.img.addr = mlx_get_data_addr(info.img.img, &info.img.bpp,
 			&info.img.size_l, &info.img.endian);
-//初期パラメータの設定
-	if (!ft_strncmp(argv[1], "mande", 5))
-		info.fractol = 0;
-	else if (!ft_strncmp(argv[1], "julia", 5))
-		info.fractol = 1;
-	else if (!ft_strncmp(argv[1], "burn", 4))
-		info.fractol = 2;
-	else
-	{
-		printf("can not determine\n");
-		exit(1);
-	}
-	
 	set_parameter(&info);
-
-//hookやloopの設定
 	if (info.fractol == 0 || info.fractol == 2)
 		mlx_loop_hook(info.mlx, &main_loop_mande_burn, &info);
 	else if (info.fractol == 1)
 		mlx_loop_hook(info.mlx, &main_loop_julia, &info);
-
-	mlx_hook(info.win, HOOK_KEY, HOOK_KEY_MASK, key_press, &info);
-	// mlx_hook(info.win, 2, 0, &key_press, &info);
-
+	mlx_hook(info.win, 2, 0, key_press, &info);
 	mlx_hook(info.win, 17, 1L << 17, &push_exit, &info);
 	mlx_mouse_hook(info.win, zoom, &info);
 	mlx_loop(info.mlx);
