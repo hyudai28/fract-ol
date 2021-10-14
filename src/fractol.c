@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 16:36:14 by hyudai            #+#    #+#             */
-/*   Updated: 2021/10/14 17:17:47 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/10/14 18:52:11 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int	arg_check(int argc, char **argv)
 {
 	if (argc != 2)
 		err_message_fractol();
-	if (!ft_strncmp(argv[1], "mande", 5))
+	if (!ft_strncmp(argv[1], "mande\0", 6))
 		return (0);
-	else if (!ft_strncmp(argv[1], "julia", 5))
+	else if (!ft_strncmp(argv[1], "julia\0", 6))
 		return (1);
-	else if (!ft_strncmp(argv[1], "burn", 4))
+	else if (!ft_strncmp(argv[1], "burn\0", 5))
 		return (2);
 	else
 		err_message_fractol();

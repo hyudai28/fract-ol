@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 16:37:07 by hyudai            #+#    #+#             */
-/*   Updated: 2021/10/14 17:24:35 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/10/14 18:53:00 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 int	push_exit(t_info *info)
 {
 	(void)info;
-	printf("you click esc, bye!\n");
+	printf("bye!\n");
 	exit(0);
 }
 
