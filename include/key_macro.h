@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 20:17:27 by hyudai            #+#    #+#             */
-/*   Updated: 2021/10/04 22:55:38 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/10/14 17:08:12 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@
 # define K_0 29
 # define K_RIGHT 123
 # define K_LEFT 124
+# define K_L_SHIFT 257
+# define K_R_SHIFT 258
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
 # define MOUSE_LEFT 6

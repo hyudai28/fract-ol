@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol_setup.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/14 16:37:07 by hyudai            #+#    #+#             */
+/*   Updated: 2021/10/14 17:24:35 by hyudai           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./../include/fractol.h"
 
 void	set_parameter(t_info *info)
@@ -10,15 +22,15 @@ void	set_parameter(t_info *info)
 	info->imgn_min = -2.0;
 	info->real_c = 0.4;
 	info->imgn_c = -0.325;
+	info->shift = 0;
 }
 
-void    my_mlx_pixel_put(t_img *img, int x, int y, int color)
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
-    char    *dst;
+	char	*dst;
 
-    dst = img->addr + (y * img->size_l
-            + x * (img->bpp / 8));
-    *(unsigned int *)dst = color;
+	dst = img->addr + (y * img->size_l + x * (img->bpp / 8));
+	*(unsigned int *)dst = color;
 }
 
 int	push_exit(t_info *info)
@@ -30,45 +42,18 @@ int	push_exit(t_info *info)
 
 void	update_c(t_info *info)
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
 	double	real_ms;
 	double	imgn_ms;
 
 	mlx_mouse_get_pos(info->win, &x, &y);
 	if (!x && !y)
 		return ;
-	real_ms = (double)x / (WIDTH / (info->real_max - info->real_min)) + info->real_min;
-	imgn_ms = (double)y / (HEIGHT / (info->imgn_max - info->imgn_min)) * -1 + info->imgn_max;
+	real_ms = (double)x / (WIDTH / (info->real_max - info->real_min)) \
+		+ info->real_min;
+	imgn_ms = (double)y / (HEIGHT / (info->imgn_max - info->imgn_min)) \
+		* -1 + info->imgn_max;
 	info->real_c = real_ms;
 	info->imgn_c = imgn_ms;
-}
-
-int	key_press(int key, t_info *info)
-{
-	if (key == K_ESC)
-		exit(0);
-	else if (key == K_W)
-	{
-		info->imgn_max -= (info->imgn_max - info->imgn_min) * MOVE_STEP;
-		info->imgn_min -= (info->imgn_max - info->imgn_min) * MOVE_STEP;
-	}
-	else if (key == K_A)
-	{
-		info->real_max -= (info->imgn_max - info->imgn_min) * MOVE_STEP;
-		info->real_min -= (info->imgn_max - info->imgn_min) * MOVE_STEP;
-	}
-	else if (key == K_S)
-	{
-		info->imgn_max += (info->imgn_max - info->imgn_min) * MOVE_STEP;
-		info->imgn_min += (info->imgn_max - info->imgn_min) * MOVE_STEP;
-	}
-	else if (key == K_D)
-	{
-		info->real_max += (info->imgn_max - info->imgn_min) * MOVE_STEP;
-		info->real_min += (info->imgn_max - info->imgn_min) * MOVE_STEP;
-	}
-	else if (key == K_G)
-		info->color = 114514;
-	return (0);
 }

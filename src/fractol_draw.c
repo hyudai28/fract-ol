@@ -1,17 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol_draw.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/14 16:36:59 by hyudai            #+#    #+#             */
+/*   Updated: 2021/10/14 17:22:40 by hyudai           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./../include/fractol.h"
 
-int set_color_burn(t_info *info)
+int	set_color_burn(t_info *info)
 {
-	int	iteration;
-	int	color;
+	int		iteration;
+	int		color;
 	double	tmp;
 
 	iteration = 0;
 	while (info->real_z * info->real_z + info->imgn_z * info->imgn_z <= 4
 		&& iteration < info->iterator)
 	{
-		tmp = info->real_z * info->real_z - info->imgn_z * info->imgn_z + info->real_c;
-		info->imgn_z = 2 * abs_double(info->real_z * info->imgn_z) + info->imgn_c;
+		tmp = info->real_z * info->real_z - \
+		info->imgn_z * info->imgn_z + info->real_c;
+		info->imgn_z = 2 * abs_double(info->real_z * info->imgn_z) \
+		+ info->imgn_c;
 		info->real_z = tmp;
 		iteration++;
 	}
@@ -73,7 +87,8 @@ void	draw_julia(t_info *info)
 
 int	main_loop_julia(t_info *info)
 {
-	update_c(info);
+	if (!info->shift)
+		update_c(info);
 	draw_julia(info);
 	mlx_put_image_to_window(info->mlx, info->win, info->img.img, 0, 0);
 	return (0);

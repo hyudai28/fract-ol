@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/14 16:37:40 by hyudai            #+#    #+#             */
+/*   Updated: 2021/10/14 17:07:26 by hyudai           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
@@ -8,6 +20,7 @@
 # include <math.h>
 # include <errno.h>
 # include <float.h>
+# include <stdbool.h>
 # include "./../include/mlx.h"
 # include "./../libft/libft.h"
 # include "./../include/key_macro.h"
@@ -55,8 +68,8 @@ typedef struct s_info
 	int		color;
 	int		fractol;
 	double	iterator;
+	bool	shift;
 }		t_info;
-
 
 int		zoom(int button, int x, int y, t_info *info);
 void	interpolate_image(t_info *info);
@@ -77,5 +90,6 @@ int		rgb2hex(int r, int g, int b);
 int		i_max(int a, int b);
 int		i_min(int a, int b);
 void	err_message_fractol(void);
+void	mlx_is_running(t_info *info);
 
 #endif

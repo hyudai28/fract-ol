@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/14 16:36:14 by hyudai            #+#    #+#             */
+/*   Updated: 2021/10/14 17:17:47 by hyudai           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./../include/fractol.h"
 
 int	arg_check(int argc, char **argv)
@@ -15,17 +27,18 @@ int	arg_check(int argc, char **argv)
 	return (0);
 }
 
-int set_color(t_info *info)
+int	set_color(t_info *info)
 {
-	int	iteration;
-	int	color;
+	int		iteration;
+	int		color;
 	double	tmp;
 
 	iteration = 0;
 	while (info->real_z * info->real_z + info->imgn_z * info->imgn_z <= 4
 		&& iteration < info->iterator)
 	{
-		tmp = info->real_z * info->real_z - info->imgn_z * info->imgn_z + info->real_c;
+		tmp = info->real_z * info->real_z - info->imgn_z \
+		* info->imgn_z + info->real_c;
 		info->imgn_z = 2 * info->real_z * info->imgn_z + info->imgn_c;
 		info->real_z = tmp;
 		iteration++;
@@ -39,18 +52,24 @@ int set_color(t_info *info)
 
 void	interpolate_image(t_info *info)
 {
-	info->real_max = (info->real_mouse +(info->real_max - info->real_mouse) * info->interpolate);
-	info->imgn_max = (info->imgn_mouse +(info->imgn_max - info->imgn_mouse) * info->interpolate);
-	info->real_min = (info->real_mouse +(info->real_min - info->real_mouse) * info->interpolate);
-	info->imgn_min = (info->imgn_mouse +(info->imgn_min - info->imgn_mouse) * info->interpolate);
+	info->real_max = (info->real_mouse +(info->real_max - info->real_mouse) \
+		* info->interpolate);
+	info->imgn_max = (info->imgn_mouse +(info->imgn_max - info->imgn_mouse) \
+		* info->interpolate);
+	info->real_min = (info->real_mouse +(info->real_min - info->real_mouse) \
+		* info->interpolate);
+	info->imgn_min = (info->imgn_mouse +(info->imgn_min - info->imgn_mouse) \
+		* info->interpolate);
 }
 
 int	zoom(int button, int x, int y, t_info *info)
 {
 	if (button == SCROLL_UP || button == SCROLL_DOWN)
 	{
-		info->real_mouse = (double)x / (WIDTH / (info->real_max - info->real_min)) + info->real_min;
-		info->imgn_mouse = (double)y / (HEIGHT / (info->imgn_max - info->imgn_min)) * -1 + info->imgn_max;
+		info->real_mouse = (double)x / \
+			(WIDTH / (info->real_max - info->real_min)) + info->real_min;
+		info->imgn_mouse = (double)y / \
+			(HEIGHT / (info->imgn_max - info->imgn_min)) * -1 + info->imgn_max;
 		if (button == SCROLL_UP)
 		{
 			if (info->iterator > 4)
@@ -78,12 +97,5 @@ int	main(int argc, char **argv)
 	info.img.addr = mlx_get_data_addr(info.img.img, &info.img.bpp,
 			&info.img.size_l, &info.img.endian);
 	set_parameter(&info);
-	if (info.fractol == 0 || info.fractol == 2)
-		mlx_loop_hook(info.mlx, &main_loop_mande_burn, &info);
-	else if (info.fractol == 1)
-		mlx_loop_hook(info.mlx, &main_loop_julia, &info);
-	mlx_hook(info.win, 2, 0, key_press, &info);
-	mlx_hook(info.win, 17, 1L << 17, &push_exit, &info);
-	mlx_mouse_hook(info.win, zoom, &info);
-	mlx_loop(info.mlx);
+	mlx_is_running(&info);
 }

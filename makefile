@@ -7,6 +7,8 @@ SRCS = $(SOURCE_DIR)/fractol.c
 SRCS += $(SOURCE_DIR)/fractol_utils.c
 SRCS += $(SOURCE_DIR)/fractol_draw.c
 SRCS += $(SOURCE_DIR)/fractol_setup.c
+SRCS += $(SOURCE_DIR)/fractol_keys.c
+SRCS += $(SOURCE_DIR)/mlx_running.c
 
 
 OBJS = ${SRCS:.c=.o}

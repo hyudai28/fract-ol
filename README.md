@@ -16,25 +16,19 @@ JP
 ## English
 <a id="anchor1">Description</a>
 
-1.
+1.https://www.deepl.com/translator
 ---
-<a id="anchor2">Usage</a>
 
-2.
----
-<a id="anchor2"></a>
-
-3.
----
 
 
 ## 日本語
 ## <a id="anchor4">概要</a>
 <br>
-フラクタル探索プログラムの作成を目的としています。このプログラムで作成可能なフラクタル集合は以下の２つです。
+フラクタル探索プログラムの作成を目的としています。このプログラムで作成可能なフラクタル集合は以下の3つです。
 
 * ジュリア集合
 * マンデルブロ集合
+* バーニングシップ集合
 
 
 ---
@@ -49,25 +43,35 @@ mac版のminilibxをしようしている関係上動作はMacでしか確認し
 実行方法
 ```
 make
-./fractol 1 //ジュリア集合
-./fractol 2 //マンデルブロ集合
+./fractol julia //ジュリア集合
+./fractol mande //マンデルブロ集合
+./fractol burn //バーニングシップ集合
 ```
 
 
 ---
 ## <a id="anchor6">実装をする上での考え方</a><br>
-1. [ジュリア集合](#anchor100)
-2. [マンデルブロ集合](#anchor101)
+0. [前提知識](#anchor99)
+1. [マンデルブロ集合](#anchor100)
+2. [ジュリア集合](#anchor101)
+2. [バーニングシップ集合](#anchor102)
 
-## <a id="anchor100">ジュリア集合</a>
+---
+## <a id="anchor99">前提知識</a>
+x軸→実数
+y軸→虚数
+
+## <a id="anchor100">マンデルブロ集合</a>
 <br>
 
 
-## <a id="anchor101">マンデルブロ集合</a>
+## <a id="anchor101">ジュリア集合</a>
 <br>
 
 
 
+## <a id="anchor102">バーニングシップ集合</a>
+<br>
 
 ---
 ## <a id="anchor6">参考文献</a><br>
