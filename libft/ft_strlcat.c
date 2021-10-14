@@ -6,17 +6,17 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 22:19:38 by hyudai            #+#    #+#             */
-/*   Updated: 2020/11/25 01:59:30 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/10/14 17:51:03 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlcat(char *string1, const char *string2, size_t size)
+size_t	ft_strlcat(char *string1, const char *string2, size_t size)
 {
-	size_t		i;
-	size_t		n;
-	size_t		k;
+	size_t	i;
+	size_t	n;
+	size_t	k;
 
 	i = 0;
 	n = ft_strlen(string1);
@@ -29,5 +29,8 @@ size_t		ft_strlcat(char *string1, const char *string2, size_t size)
 		i++;
 	}
 	string1[i + n] = '\0';
-	return ((ft_strlen(string1) > size) ? (k + size) : (n + k));
+	if (ft_strlen(string1) > size)
+		return (k + size);
+	else
+		return (n + k);
 }

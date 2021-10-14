@@ -6,13 +6,13 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 11:57:33 by hyudai            #+#    #+#             */
-/*   Updated: 2020/11/25 00:12:52 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/10/14 17:38:32 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isascii(int c)
+int	ft_isascii(int c)
 {
 	return (0 <= c && c <= 127);
 }

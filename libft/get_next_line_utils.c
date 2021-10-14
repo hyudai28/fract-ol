@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 13:46:03 by hyudai            #+#    #+#             */
-/*   Updated: 2021/05/19 16:36:02 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/14 17:41:43 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		gnl_strchr(const char *s, int c)
+size_t	gnl_strchr(const char *s, int c)
 {
 	int		i;
 
@@ -27,7 +27,7 @@ size_t		gnl_strchr(const char *s, int c)
 	return (i);
 }
 
-char		*ft_strnjoin(char *s1, char *s2, size_t chr)
+char	*ft_strnjoin(char *s1, char *s2, size_t chr)
 {
 	size_t		size;
 	size_t		i;
@@ -51,7 +51,7 @@ char		*ft_strnjoin(char *s1, char *s2, size_t chr)
 	return (dest);
 }
 
-char		*gnl_strdup(char *s1)
+char	*gnl_strdup(char *s1)
 {
 	size_t	i;
 	size_t	len;
@@ -71,7 +71,7 @@ char		*gnl_strdup(char *s1)
 	return (dest);
 }
 
-void		gnl_free_all(char **line, char **st_arr, int fd)
+void	gnl_free_all(char **line, char **st_arr, int fd)
 {
 	free(*line);
 	*line = NULL;

@@ -6,13 +6,13 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 00:24:16 by hyudai            #+#    #+#             */
-/*   Updated: 2020/11/25 01:54:00 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/10/14 17:38:00 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int				ft_atoi_error(const char *str, int flag)
+static int	ft_atoi_error(const char *str, int flag)
 {
 	int		i;
 
@@ -27,9 +27,9 @@ static int				ft_atoi_error(const char *str, int flag)
 	return (0);
 }
 
-static int				ft_atoi_overflow(unsigned long dest, int flag)
+static int	ft_atoi_overflow(unsigned long dest, int flag)
 {
-	unsigned long max;
+	unsigned long	max;
 
 	max = 9223372036854775807;
 	if (flag == 1)
@@ -58,7 +58,7 @@ static unsigned long	ft_atoi_excute(const char *str, unsigned long dest)
 	return (dest);
 }
 
-int						ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	unsigned long	dest;
 	int				flag;
@@ -80,5 +80,5 @@ int						ft_atoi(const char *str)
 		return (-1);
 	else if (ft_atoi_overflow(dest, flag) == 1)
 		return (0);
-	return (int)(dest * flag);
+	return ((int)(dest * flag));
 }

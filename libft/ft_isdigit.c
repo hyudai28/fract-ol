@@ -6,13 +6,13 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 11:42:31 by hyudai            #+#    #+#             */
-/*   Updated: 2020/11/25 02:13:29 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/10/14 17:38:36 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
 	return ('0' <= c && c <= '9');
 }

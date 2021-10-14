@@ -6,13 +6,13 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 00:07:14 by hyudai            #+#    #+#             */
-/*   Updated: 2020/11/25 01:05:32 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/10/14 17:38:44 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isspace(int c)
+int	ft_isspace(int c)
 {
 	c = (char)c;
 	if (('\t' <= c && c <= '\r') || c == ' ')

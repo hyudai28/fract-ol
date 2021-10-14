@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 00:55:54 by hyudai            #+#    #+#             */
-/*   Updated: 2021/05/19 17:09:44 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/14 17:53:49 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			gnl_find_newline(int fd, char **line, char **st_arr, char *buf)
+int	gnl_find_newline(int fd, char **line, char **st_arr, char *buf)
 {
 	int		chr;
 	int		flag;
@@ -40,15 +40,16 @@ int			gnl_find_newline(int fd, char **line, char **st_arr, char *buf)
 	return (flag);
 }
 
-int			gnl_read_fd(int fd, char **line, char **st_arr)
+int	gnl_read_fd(int fd, char **line, char **st_arr)
 {
-	ssize_t r_result;
+	ssize_t	r_result;
 	char	*buf;
 	int		find_new;
 
 	find_new = 0;
 	r_result = 1;
-	if (!(buf = malloc((size_t)BUFFER_SIZE + 1)))
+	buf = malloc((size_t)BUFFER_SIZE + 1);
+	if (!buf)
 		return (0);
 	while (r_result > 0 && find_new == 0)
 	{
@@ -61,13 +62,13 @@ int			gnl_read_fd(int fd, char **line, char **st_arr)
 	}
 	free(buf);
 	if (r_result == -1)
-			gnl_free_all(line, st_arr, fd);
+		gnl_free_all(line, st_arr, fd);
 	return (find_new);
 }
 
-int			get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
-	static char *st_arr[256];
+	static char	*st_arr[256];
 	int			check;
 
 	if (0 > fd || fd >= 256 || !line)

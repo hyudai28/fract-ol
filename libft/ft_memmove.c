@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 01:58:56 by hyudai            #+#    #+#             */
-/*   Updated: 2020/11/25 02:02:51 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/10/14 17:39:57 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_memmove(void *buf1, const void *buf2, size_t n)
 {
-	size_t			i;
-	char			*dest;
-	const char		*src;
+	size_t		i;
+	char		*dest;
+	const char	*src;
 
 	i = 0;
 	dest = buf1;

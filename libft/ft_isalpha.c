@@ -6,13 +6,13 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 11:34:03 by hyudai            #+#    #+#             */
-/*   Updated: 2020/11/25 00:31:43 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/10/14 17:38:27 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
 	return (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z'));
 }

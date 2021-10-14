@@ -6,13 +6,13 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 21:30:47 by hyudai            #+#    #+#             */
-/*   Updated: 2020/11/25 00:11:25 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/10/14 17:44:20 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(const void *buf1, const void *buf2, size_t n)
+int	ft_memcmp(const void *buf1, const void *buf2, size_t n)
 {
 	const unsigned char	*a;
 	const unsigned char	*b;

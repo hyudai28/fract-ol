@@ -6,13 +6,13 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 11:47:16 by hyudai            #+#    #+#             */
-/*   Updated: 2020/11/25 01:38:46 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/10/14 17:38:16 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalnum(int c)
+int	ft_isalnum(int c)
 {
 	return ((ft_isdigit(c) + ft_isalpha(c)) != 0);
 }

@@ -6,13 +6,13 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 14:59:23 by hyudai            #+#    #+#             */
-/*   Updated: 2020/11/26 18:28:46 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/10/14 17:41:02 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		len;
 	char	*dest;

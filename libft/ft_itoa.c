@@ -6,13 +6,13 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 19:15:38 by hyudai            #+#    #+#             */
-/*   Updated: 2020/11/25 01:49:36 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/10/14 17:42:43 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_itoa_count(long int n, int i)
+static int	ft_itoa_count(long int n, int i)
 {
 	while (n >= 10)
 	{
@@ -22,7 +22,7 @@ static int		ft_itoa_count(long int n, int i)
 	return (i);
 }
 
-static char		*ft_itoa_saiki(long int n, char *dest, int i, int x)
+static char	*ft_itoa_saiki(long int n, char *dest, int i, int x)
 {
 	if (n >= 10)
 	{
@@ -34,7 +34,7 @@ static char		*ft_itoa_saiki(long int n, char *dest, int i, int x)
 	return (dest);
 }
 
-char			*ft_itoa(int k)
+char	*ft_itoa(int k)
 {
 	int			i;
 	int			flag;

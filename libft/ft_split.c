@@ -6,13 +6,13 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 16:09:45 by hyudai            #+#    #+#             */
-/*   Updated: 2020/11/25 12:03:37 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/10/14 17:40:22 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_split_count(char const *s, char c)
+static int	ft_split_count(char const *s, char c)
 {
 	int		count;
 	int		i;
@@ -33,7 +33,7 @@ static int		ft_split_count(char const *s, char c)
 	return (count);
 }
 
-static void		ft_set(char const *s, char **dest, char c, int count)
+static void	ft_set(char const *s, char **dest, char c, int count)
 {
 	int		i;
 	int		j;
@@ -56,7 +56,7 @@ static void		ft_set(char const *s, char **dest, char c, int count)
 	dest[i] = NULL;
 }
 
-static void		ft_split_free(char **dest, int i)
+static void	ft_split_free(char **dest, int i)
 {
 	while (i > 0)
 	{
@@ -66,7 +66,7 @@ static void		ft_split_free(char **dest, int i)
 	free(dest);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		i;
 	char	**dest;
