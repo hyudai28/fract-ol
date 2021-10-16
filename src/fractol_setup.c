@@ -6,7 +6,7 @@
 /*   By: hyudai <hyudai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 16:37:07 by hyudai            #+#    #+#             */
-/*   Updated: 2021/10/14 18:53:00 by hyudai           ###   ########.fr       */
+/*   Updated: 2021/10/16 15:59:54 by hyudai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	set_parameter(t_info *info)
 	info->imgn_min = -2.0;
 	info->real_c = 0.4;
 	info->imgn_c = -0.325;
-	info->shift = 0;
+	info->shift = 1;
 }
 
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
