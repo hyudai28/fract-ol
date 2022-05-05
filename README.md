@@ -6,12 +6,6 @@
     * [マンデルブロ集合](#anchor101)
 4. [参考文献](#anchor7)
 ***
-## English
-<a id="anchor1">Description</a>
-
-1.https://www.deepl.com/translator
----
-
 
 
 ## 日本語
