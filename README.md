@@ -1,11 +1,4 @@
-# 42Cursus level2 "fract-ol"
-EN
-1. [Description](#anchor1)
-2. [Usage](#anchor2)
-3. [](#anchor3)
-4. [](#anchor7)
-
-JP
+# 42Cursus level2 "fract-ol"  
 1. [概要](#anchor4)
 2. [実行方法](#anchor5)
 3. [実装をする上での考え方](#anchor6)
@@ -47,31 +40,6 @@ make
 ./fractol mande //マンデルブロ集合
 ./fractol burn //バーニングシップ集合
 ```
-
-
----
-## <a id="anchor6">実装をする上での考え方</a><br>
-0. [前提知識](#anchor99)
-1. [マンデルブロ集合](#anchor100)
-2. [ジュリア集合](#anchor101)
-2. [バーニングシップ集合](#anchor102)
-
----
-## <a id="anchor99">前提知識</a>
-x軸→実数
-y軸→虚数
-
-## <a id="anchor100">マンデルブロ集合</a>
-<br>
-
-
-## <a id="anchor101">ジュリア集合</a>
-<br>
-
-
-
-## <a id="anchor102">バーニングシップ集合</a>
-<br>
 
 ---
 ## <a id="anchor6">参考文献</a><br>
